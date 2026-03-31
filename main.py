@@ -182,6 +182,12 @@ def convert_number_to_words(num: int, lang: str) -> str:
 # 4. FASTAPI ENDPOINT (API yo'li)
 # ==========================================
 
+@app.get("/")
+async def home():
+    return {
+        "status": "Num2Words API is successfully working..."
+    }
+
 @app.get("/n2w")
 async def get_number_to_words(
     num: str = Query(..., description="O'girilishi kerak bo'lgan son (butun son, musbat yoki manfiy)"),
